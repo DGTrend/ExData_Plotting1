@@ -1,0 +1,5 @@
+cons<-read.csv2(file="H:/R_learning/data/household_power_consumption.txt",colClasses = colClasses,na.strings = '?',dec=".")
+cons1<-subset(cons,Date!="?"& ((Date == "2/2/2007") | (Date == "1/2/2007") ))
+x<-paste(cons1[,1]," ",cons1[,2])
+times<-strptime(x,format="%d/%m/%Y   %H:%M:%S")
+plot (times,cons1[,3],type = "l", ylab = "Global Active Power(kilowatts)",xlab="")
